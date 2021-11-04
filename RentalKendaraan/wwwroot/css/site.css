@@ -1,0 +1,359 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+:root {
+    /*========== Colors ==========*/
+    --first-color: #ffffff;
+    --title-color: #19181b;
+    --body-color: #f9f6fd;
+    --color-default: #212529;
+    --container-color: #ffffff;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .nav__name {
+        transition: 0.4s step-start;
+    }
+
+    .sec__about {
+        margin-top: 15px;
+    }
+
+
+    .sec__link {
+        margin-top: 15px;
+    }
+
+    .sec__contact {
+        margin-top: 15px;
+    }
+
+    .customer__create {
+        font-size: 12px;
+    }  
+    
+    .customer__edit {
+        font-size: 12px;
+    }  
+    
+    .customer__detail {
+        font-size: 12px;
+    }   
+    
+    .customer__delete {
+        font-size: 12px;
+    }
+
+    .text__delete {
+        font-size: 15px;
+    }
+
+    .text__delete__2 {
+        font-size: 13px;
+    }
+
+    .btn__delete {
+        font-size: 16px;
+    }
+
+    .btn__cancel {
+        font-size: 16px;
+    }
+
+    .text__update {
+        font-size: 15px;
+    }
+
+    .text__update__2 {
+        font-size: 13px;
+    }
+
+    .btn__update {
+        font-size: 16px;
+    }
+
+    .btn__cancel_2 {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.nav__layout {
+    box-shadow: 0 1px 0 rgba(22, 8, 43, 0.1);
+    background-color: var(--container-color);
+}
+
+.nav__name {
+    font-weight: 500;
+    transition: 0.4s ease-in-out;
+}
+
+.dropdown {   
+    cursor: pointer;
+}
+
+.dropdown-toggle {
+    transition: 0.4s;
+}
+
+.dropdown-toggle::after {
+    transition: transform 0.15s linear;
+}
+
+.show.dropdown .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-item:hover {
+    background-color: #007bff;
+    color: var(--first-color);
+}
+
+.my_footer {
+    background-color: var(--container-color);
+}
+
+.sec_1 {
+    color: var(--title-color);
+}
+
+.sec_2 {
+    color: var(--title-color);
+}
+
+.icon__page {
+    font-size: 30px;
+}
+
+.app__name {
+    padding-left: 10px;
+}
+
+.text-underline-hover {
+    text-decoration: none;
+    color: var(--title-color);
+}
+
+.text-underline-hover:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    margin-bottom: -30px;
+}
+
+.employee__data {
+    margin-top: 5rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 12px;
+    overflow-x: auto;
+    backdrop-filter: blur(6px) saturate(182%);
+    box-shadow: 0 2px 12px 0 rgba( 31, 38, 135, 0.37 );
+    -webkit-backdrop-filter: blur(6px) saturate(182%);
+    background-color: rgba(107, 152, 239, 0.31);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.table__head {
+    color: #343a40;
+}
+
+.table_body {
+    color: darkblue;
+}
+
+.table__customers {
+    margin-bottom: 2rem;
+}
+
+.home__customer {
+    color: var(--title-color);
+}
+
+.customer__create {
+    margin-top: 6rem;
+}
+
+.modal-content {
+    backdrop-filter: blur(9px) saturate(182%);
+    -webkit-backdrop-filter: blur(9px) saturate(182%);
+    background-color: rgba(0, 123, 255, 0.12);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.create__card {
+    border-radius: 12px;
+}
+
+.create__header {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.customer__detail {
+    margin-top: 6rem;
+}
+
+.detail__card {
+    border-radius: 8px;
+}
+
+.detail__header {
+    background-color: lightgreen;
+    border-radius: 8px;
+    color: #000080;
+    font-weight: 600;
+}
+
+.customer__edit {
+    margin-top: 6rem;
+}
+
+.icon_edit {
+    color: #81c91d;
+    font-size: 70px;
+}
+
+.text__update {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+.text__update__2 {
+    color: wheat;
+}
+
+.btn__update {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+.btn__cancel_2 {
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+.edit__card {
+    border-radius: 12px;
+}
+
+.edit__header {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.customer__delete {
+    margin-top: 6rem;
+}
+
+.delete__card {
+    border-radius: 12px;
+}
+
+.delete__header {
+    background-color: red;
+    color: white;
+    font-weight: 600;
+}
+
+.icon_delete {
+    color: #dc3545;
+    font-size: 70px;
+}
+
+.text__delete {
+    color: red;
+    font-weight: 600;
+}
+
+.text__delete__2 {
+    color: floralwhite;
+}
+
+.btn__delete {
+    color: red;
+    font-weight: 600;
+}
+
+.btn__cancel {
+    color: white;
+    font-weight: 500;
+}
+
+.privacy{
+    margin-top: 5rem;
+}
+
+.about {
+    margin-top: 5rem;
+}

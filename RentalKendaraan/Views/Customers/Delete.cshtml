@@ -1,0 +1,85 @@
+﻿@model RentalKendaraan.Models.Customer
+
+@{
+    ViewData["Title"] = "Delete Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="customer__delete">
+    <span><i class="fas fa-home"></i></span>
+    <a asp-action="Index" class="home__customer">Employee Data</a> > Delete Data > @Html.DisplayFor(model => model.NamaCustomer)
+</p>
+
+<hr />
+
+<div class="row mb-3">
+    <div class="col-md-8">
+        <div class="card delete__card">
+            <h5 class="card-header delete__header">
+            Delete Data Employee
+            </h5>
+            <div class="card-body">
+                 <dl class="row">
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.NamaCustomer)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.NamaCustomer)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.Nik)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.Nik)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.Alamat)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.Alamat)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.NoHp)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.NoHp)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.IdGenderNavigation)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.IdGenderNavigation.IdGender)
+                    </dd class>          
+                </dl>
+            </div>
+            <div class="card-footer">
+               <div>
+                   <button class="btn btn-danger" data-toggle="modal" data-target="#modalChoice">Delete</button>
+                   <a class="btn btn-outline-success" asp-action="Index"><i class="fas fa-list"></i> Back to List</a>
+                   <div class="modal fade modal-alert" id="modalChoice" tabindex="-1" aria-hidden="true">
+                       <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content rounded-4 shadow">
+                                 <form asp-action="Delete">
+                                      <div class="modal-content rounded-4 shadow">
+                                           <div class="icon_delete modal-header justify-content-center">
+                                                <i class="far fa-times-circle"></i>
+                                           </div>
+                                           <div class="modal-body p-4 text-center">
+                                                <h5 class="mb-2 text__delete">Are you sure want to delete this data?</h5>
+                                                <p class="mb-0 text__delete__2">You can still change your mind by click "No thanks".</p>
+                                           </div>
+                                           <div class="modal-footer flex-nowrap p-0">
+                                                <input type="hidden" asp-for="IdCustomer" />
+                                                <input type="submit" value="Yes, delete" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right btn__delete" /> 
+                                                <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 btn__cancel" data-dismiss="modal">No, thanks</button>
+                                           </div>
+                                      </div>
+                                 </form>
+                            </div>
+                       </div>
+                    </div>
+               </div>
+            </div>
+       </div>
+    </div>
+</div>

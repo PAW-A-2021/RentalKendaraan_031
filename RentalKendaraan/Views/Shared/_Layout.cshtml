@@ -1,0 +1,104 @@
+﻿@using RentalKendaraan.Helper
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Rental Kendaraan</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light fixed-top border-bottom mb-3 nav__layout">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-tools"></i> &nbsp; Rental Kendaraan</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item @Url.MakeActive("Customers")">
+                            <a class="nav-link nav__name" asp-area="" asp-controller="Customers" asp-action="Index">Home <span class='sr-only'>(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle nav__name" data-toogle="dropdown" id="navbarDropdown">Rental Menu</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Customers" asp-action="Index">Customer</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Genders" asp-action="Index">Gender</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Jaminans" asp-action="Index">Jaminan</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="JenisKendaraans" asp-action="Index">Jenis Kendaraan</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Kendaraans" asp-action="Index">Kendaraan</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="KondisiKendaraans" asp-action="Index">Kondisi Kendaraan</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Peminjamen" asp-action="Index">Peminjaman</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Pengembalians" asp-action="Index">Pengembalian</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item @Url.MakeActive("Privacy")">
+                            <a class="nav-link nav__name" asp-area="" asp-controller="Privacy" asp-action="Index">Privacy</a>
+                        </li>
+                        <li class="nav-item @Url.MakeActive("About")">
+                            <a class="nav-link nav__name" asp-area="" asp-controller="About" asp-action="Index">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="my_footer border-top">
+        <div class="container">
+          <footer class="footer row row-cols-5 py-4 my-4">
+            <div class="col-md-3">
+              <a asp-action="Index" class="d-flex align-items-center mb-3 link-dark text-underline-hover">
+                <i class="fas fa-tools icon__page"></i>
+                <span class="app__name">Rental Kendaraan</span>
+              </a>
+            </div>
+
+
+            <div class="col-lg-4 sec__about">
+              <h5>About Us</h5>
+              <div class="flex-column">
+                 <span>Rental a vehicle only in our websites. We have a best services and affordable price. We also offer a good vehicles and have comfortable and best facilities.</span>
+              </div>
+            </div>
+
+            <div class="col-lg-2 sec__link">
+              <h5>Section</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2 text-underline-hover @Url.MakeActive("Customers")"><a asp-action="Index" asp-controller="Customers" class="nav-link p-0 sec_1">Home</a></li>
+                <li class="nav-item mb-2 text-underline-hover @Url.MakeActive("Privacy")"><a asp-action="Index" asp-controller="Privacy" class="nav-link p-0 sec_2">Privacy</a></li>
+                <li class="nav-item mb-2 text-underline-hover @Url.MakeActive("About")"><a asp-action="Index" asp-controller="About" class="nav-link p-0 sec_2">About us</a></li>
+              </ul>
+            </div>
+
+            <div class="col sec__contact">
+              <h5>Contact Us</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2">Indonesia</li>
+                <li class="nav-item mb-2">082901901901</li>
+                <li class="nav-item mb-2">office@gmail.com</li>
+              </ul>
+            </div>
+          </footer>
+          <p class="text-muted copyright">&copy; 2021 - Rental Kendaraan. All Right Reserved</p>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

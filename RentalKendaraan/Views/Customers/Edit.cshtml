@@ -1,0 +1,87 @@
+﻿@model RentalKendaraan.Models.Customer
+
+@{
+    ViewData["Title"] = "Edit Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="customer__edit">
+    <span><i class="fas fa-home"></i></span>
+    <a asp-action="Index" class="home__customer">Employee Data</a> > Edit Data > @Html.DisplayFor(model => model.NamaCustomer)
+</p>
+
+<hr />
+
+<div class="row mb-3">
+    <div class="col-md-8">
+        <div class="card edit__card">
+          <h5 class="card-header edit__header">Edit Data Employee</h5>
+          <div class="card-body">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdCustomer" />
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="NamaCustomer" class="control-label"></label>
+                        <input asp-for="NamaCustomer" class="form-control" />
+                        <span asp-validation-for="NamaCustomer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Nik" class="control-label"></label>
+                        <input asp-for="Nik" class="form-control" />
+                        <span asp-validation-for="Nik" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Alamat" class="control-label"></label>
+                        <input asp-for="Alamat" class="form-control" />
+                        <span asp-validation-for="Alamat" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="NoHp" class="control-label"></label>
+                        <input asp-for="NoHp" class="form-control" />
+                        <span asp-validation-for="NoHp" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdGender" class="control-label"></label>
+                    <select asp-for="IdGender" class="form-control" asp-items="ViewBag.IdGender"></select>
+                    <span asp-validation-for="IdGender" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalChoice"><span><i class="fas fa-angle-double-up"></i></span> Update</button>               
+                    </div>
+                    <div class="form-group col-md-6">
+                        <a asp-action="Index" class="btn btn-outline-success btn-block"><i class="fas fa-list"></i> Back to List</a>
+                    </div>
+                    <div class="modal fade modal-alert" id="modalChoice" tabindex="-1" aria-hidden="true">
+                       <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content rounded-4 shadow">
+                                <div class="modal-content rounded-4 shadow">
+                                      <div class="modal-header justify-content-center">
+                                           <i class="fas fa-check-circle icon_edit"></i>
+                                      </div>
+                                      <div class="modal-body p-4 text-center">
+                                           <h5 class="mb-2 text__update">Are you sure want to update this data?</h5>
+                                           <p class="mb-0 text__update__2">You can still change your mind in menu edit data.</p>
+                                      </div>
+                                      <div class="modal-footer flex-nowrap p-0">
+                                           <input type="submit" value="Yes, update" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right btn__update" />
+                                           <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 btn__cancel_2" data-dismiss="modal">No, thanks</button>
+                                      </div>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>    
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

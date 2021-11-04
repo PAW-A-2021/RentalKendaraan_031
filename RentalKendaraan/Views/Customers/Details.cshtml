@@ -1,0 +1,63 @@
+﻿@model RentalKendaraan.Models.Customer
+
+@{
+    ViewData["Title"] = "Detail Data"; 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="customer__detail">
+    <span><i class="fas fa-home"></i></span>
+    <a asp-action="Index" class="home__customer">Customers Data</a> > Detail Data > @Html.DisplayFor(model => model.NamaCustomer)
+</p>
+
+<hr />
+
+<div class="row mb-3">
+    <div class="col-md-8">
+        <div class="card detail__card">
+            <h5 class="card-header detail__header">
+            Detail Data Employee
+            </h5>
+            <div class="card-body">
+                <dl class="row mt-2">
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.NamaCustomer)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.NamaCustomer)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.Nik)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.Nik)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.Alamat)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.Alamat)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.NoHp)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.NoHp)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.IdGenderNavigation)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        @Html.DisplayFor(model => model.IdGenderNavigation.IdGender)
+                    </dd>              
+                </dl>
+            </div>
+            <div class="card-footer">
+               <div class="justify-content-end">
+                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model.IdCustomer"><i class="far fa-edit"></i> Edit</a>
+                    <a class="btn btn-outline-success" asp-action="Index"><i class="fas fa-list"></i> Back to List</a>
+               </div>
+            </div>
+       </div>
+    </div>
+</div>

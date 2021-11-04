@@ -1,0 +1,72 @@
+﻿@model IEnumerable<RentalKendaraan.Models.Customer>
+
+@{
+    ViewData["Title"] = "Home Page Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 employee__data">
+    <h3 class="h4">Customers Data</h3>
+
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <a asp-action="Create" class="btn btn-sm btn-outline-dark text-decoration-none">
+                <i class="fas fa-plus-circle"></i> 
+                <span>Create new data</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="table__customers">
+     <table class="table table-striped table-hover table-responsive-lg" id="table_customers">
+            <thead class="table__head">
+                <tr>
+                    <th>
+                        Nama Customer
+                    </th>
+                    <th>
+                        NIK
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Alamat)
+                    </th>
+                    <th>
+                        No.Hp
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdGenderNavigation)
+                    </th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table_body">
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NamaCustomer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nik)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Alamat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoHp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdGenderNavigation.IdGender)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-area="@item.NamaCustomer"asp-action="Details" asp-route-id="@item.IdCustomer" class="btn btn-sm btn-success" title="Detail" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-info-circle"></i></a>
+                            <a asp-area="@item.NamaCustomer" asp-action="Edit" asp-route-id="@item.IdCustomer" class="btn btn-sm btn-info" title="Edit" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-edit"></i></a> 
+                            <a asp-area="@item.NamaCustomer" asp-action="Delete" asp-route-id="@item.IdCustomer" class="btn btn-sm btn-danger" title="Delete" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+                </tr>
+        }
+            </tbody>
+     </table>
+</div>
