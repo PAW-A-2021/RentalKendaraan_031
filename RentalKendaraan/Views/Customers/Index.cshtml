@@ -6,7 +6,7 @@
 }
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 employee__data">
-    <h3 class="h4">Customers Data</h3>
+    <h3 class="h4 title"><i class="fas fa-users"></i> &nbsp; Customers Data</h3>
 
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
@@ -19,23 +19,23 @@
 </div>
 
 <div class="table__customers">
-     <table class="table table-striped table-hover table-responsive-lg" id="table_customers">
+     <table class="table table-striped table-hover table-responsive-lg" id="table_data">
             <thead class="table__head">
                 <tr>
                     <th>
-                        Nama Customer
+                        @Html.DisplayName("Nama Customer")
                     </th>
                     <th>
-                        NIK
+                        @Html.DisplayName("NIK")
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Alamat)
+                        @Html.DisplayName("Alamat")
                     </th>
                     <th>
-                        No.Hp
+                       @Html.DisplayName("No.Hp")
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.IdGenderNavigation)
+                        @Html.DisplayName("Gender")
                     </th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -56,7 +56,7 @@
                         @Html.DisplayFor(modelItem => item.NoHp)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdGenderNavigation.IdGender)
+                        @Html.DisplayFor(modelItem => item.IdGenderNavigation.NamaGender)
                     </td>
                     <td>
                         <div class="btn-group">

@@ -47,7 +47,7 @@ namespace RentalKendaraan.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
-            ViewData["IdGender"] = new SelectList(_context.Genders, "IdGender", "IdGender");
+            ViewData["IdGender"] = new SelectList(_context.Genders, "IdGender", "NamaGender");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace RentalKendaraan.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdGender"] = new SelectList(_context.Genders, "IdGender", "IdGender", customer.IdGender);
+            ViewData["IdGender"] = new SelectList(_context.Genders, "IdGender", "NamaGender", customer.IdGender);
             return View(customer);
         }
 
@@ -81,7 +81,7 @@ namespace RentalKendaraan.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdGender"] = new SelectList(_context.Genders, "IdGender", "IdGender", customer.IdGender);
+            ViewData["IdGender"] = new SelectList(_context.Genders, "IdGender", "NamaGender", customer.IdGender);
             return View(customer);
         }
 
@@ -117,7 +117,7 @@ namespace RentalKendaraan.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdGender"] = new SelectList(_context.Genders, "IdGender", "IdGender", customer.IdGender);
+            ViewData["IdGender"] = new SelectList(_context.Genders, "IdGender", "NamaGender", customer.IdGender);
             return View(customer);
         }
 

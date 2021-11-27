@@ -47,10 +47,13 @@ html {
         transition: 0.4s step-start;
     }
 
+    .title {
+        font-size: 16px;
+    }
+
     .sec__about {
         margin-top: 15px;
     }
-
 
     .sec__link {
         margin-top: 15px;
@@ -140,6 +143,7 @@ body {
 }
 
 
+/* Main CSS */
 .nav__layout {
     box-shadow: 0 1px 0 rgba(22, 8, 43, 0.1);
     background-color: var(--container-color);
@@ -150,8 +154,23 @@ body {
     transition: 0.4s ease-in-out;
 }
 
+.navbar-brand {
+    font-weight: 500;
+}
+
 .dropdown {   
     cursor: pointer;
+}
+
+.dropdown-menu {
+    border-radius: 10px;
+}
+
+.dropdown-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: #707070;
 }
 
 .dropdown-toggle {
@@ -189,6 +208,7 @@ body {
 
 .app__name {
     padding-left: 10px;
+    font-weight: 500;
 }
 
 .text-underline-hover {
@@ -207,10 +227,24 @@ body {
     margin-bottom: -30px;
 }
 
-.employee__data {
+.privacy {
     margin-top: 5rem;
 }
 
+.about {
+    margin-top: 5rem;
+}
+
+.bi__icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: -.125em;
+    fill: currentColor;
+    display: inline-block;
+}
+
+
+/* Table CSS */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -231,52 +265,14 @@ table {
     color: darkblue;
 }
 
-.table__customers {
-    margin-bottom: 2rem;
-}
 
-.home__customer {
-    color: var(--title-color);
-}
-
-.customer__create {
-    margin-top: 6rem;
-}
-
+/* Modal CSS */
 .modal-content {
     backdrop-filter: blur(9px) saturate(182%);
     -webkit-backdrop-filter: blur(9px) saturate(182%);
     background-color: rgba(0, 123, 255, 0.12);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
-}
-
-.create__card {
-    border-radius: 12px;
-}
-
-.create__header {
-    background-color: dodgerblue;
-    color: white;
-}
-
-.customer__detail {
-    margin-top: 6rem;
-}
-
-.detail__card {
-    border-radius: 8px;
-}
-
-.detail__header {
-    background-color: lightgreen;
-    border-radius: 8px;
-    color: #000080;
-    font-weight: 600;
-}
-
-.customer__edit {
-    margin-top: 6rem;
 }
 
 .icon_edit {
@@ -303,29 +299,6 @@ table {
     font-weight: 500;
 }
 
-.edit__card {
-    border-radius: 12px;
-}
-
-.edit__header {
-    background-color: dodgerblue;
-    color: white;
-}
-
-.customer__delete {
-    margin-top: 6rem;
-}
-
-.delete__card {
-    border-radius: 12px;
-}
-
-.delete__header {
-    background-color: red;
-    color: white;
-    font-weight: 600;
-}
-
 .icon_delete {
     color: #dc3545;
     font-size: 70px;
@@ -350,10 +323,145 @@ table {
     font-weight: 500;
 }
 
-.privacy{
+
+/* Card CSS */
+.create__card {
+    border-radius: 12px;
+}
+
+.create__header {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.detail__card {
+    border-radius: 8px;
+}
+
+.detail__header {
+    background-color: lightgreen;
+    border-radius: 8px;
+    color: #000080;
+    font-weight: 600;
+}
+
+.edit__card {
+    border-radius: 12px;
+}
+
+.edit__header {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.delete__card {
+    border-radius: 12px;
+}
+
+.delete__header {
+    background-color: red;
+    color: white;
+    font-weight: 600;
+}
+
+
+
+/* Customers CSS*/
+.employee__data {
     margin-top: 5rem;
 }
 
-.about {
+.table__customers {
+    margin-bottom: 2rem;
+}
+
+.home__customer {
+    color: var(--title-color);
+}
+
+.customer__create {
+    margin-top: 6rem;
+}
+
+
+.customer__detail {
+    margin-top: 6rem;
+}
+
+.customer__edit {
+    margin-top: 6rem;
+}
+
+.customer__delete {
+    margin-top: 6rem;
+}
+
+
+/* Gender CSS */
+.gender__data {
     margin-top: 5rem;
+}
+
+.table__genders {
+    margin-bottom: 2rem;
+}
+
+
+/* Jaminan CSS */
+.jaminan__data {
+    margin-top: 5rem;
+}
+
+.table__jaminan {
+    margin-bottom: 2rem;
+}
+
+
+/* Jenis Kendaraan CSS */
+.vhctype__data {
+    margin-top: 5rem;
+}
+
+.table__vhctype {
+    margin-bottom: 2rem;
+}
+
+
+/* Kendaraan CSS */
+.vehicles__data {
+    margin-top: 5rem;
+}
+
+.table__vehicles {
+    margin-bottom: 2rem;
+}
+
+
+/* Kondisi Kendaraan CSS */
+.vhcconditions__data {
+    margin-top: 5rem;
+}
+
+.table__vhcconditions {
+    margin-bottom: 2rem;
+}
+
+
+/* Peminjaman CSS */
+.vhcloans__data {
+    margin-top: 5rem;
+}
+
+.table__vhcloans {
+    margin-bottom: 2rem;
+}
+
+
+/* Peminjaman CSS */
+.vhcreturns__data {
+    margin-top: 5rem;
+}
+
+.table__vhcreturns {
+    margin-bottom: 2rem;
 }

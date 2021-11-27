@@ -4,7 +4,7 @@
 // Write your JavaScript code.
 
 $(document).ready(function () {
-    $('#table_customers').DataTable();
+    $('#table_data').DataTable();
 });
 
 $(function () {

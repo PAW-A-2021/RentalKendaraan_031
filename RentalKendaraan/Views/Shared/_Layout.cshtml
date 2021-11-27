@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" href="~/img/rent.png">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -28,14 +29,14 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle nav__name" data-toogle="dropdown" id="navbarDropdown">Rental Menu</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Customers" asp-action="Index">Customer</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Genders" asp-action="Index">Gender</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Jaminans" asp-action="Index">Jaminan</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="JenisKendaraans" asp-action="Index">Jenis Kendaraan</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Kendaraans" asp-action="Index">Kendaraan</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="KondisiKendaraans" asp-action="Index">Kondisi Kendaraan</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Peminjamen" asp-action="Index">Peminjaman</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Pengembalians" asp-action="Index">Pengembalian</a></li>
+                                <li><a class="dropdown-item @Url.MakeActive("Customers")" asp-area="" asp-controller="Customers" asp-action="Index"><i class="bi__icon fas fa-users"></i> Customer</a></li>
+                                <li><a class="dropdown-item @Url.MakeActive("Genders")" asp-area="" asp-controller="Genders" asp-action="Index"><i class="bi__icon fas fa-venus-mars"></i> Gender</a></li>
+                                <li><a class="dropdown-item @Url.MakeActive("Jaminans")" asp-area="" asp-controller="Jaminans" asp-action="Index"><i class="bi__icon fas fa-hand-holding-usd"></i> Jaminan</a></li>
+                                <li><a class="dropdown-item @Url.MakeActive("JenisKendaraans")" asp-area="" asp-controller="JenisKendaraans" asp-action="Index"><i class="bi__icon fas fa-sort"></i> Jenis Kendaraan</a></li>
+                                <li><a class="dropdown-item @Url.MakeActive("Kendaraans")" asp-area="" asp-controller="Kendaraans" asp-action="Index"><i class="bi__icon fas fa-car-alt"></i> Kendaraan</a></li>
+                                <li><a class="dropdown-item @Url.MakeActive("KondisiKendaraans")" asp-area="" asp-controller="KondisiKendaraans" asp-action="Index"><i class="bi__icon fas fa-hand-holding-heart"></i> Kondisi Kendaraan</a></li>
+                                <li><a class="dropdown-item @Url.MakeActive("Peminjamen")" asp-area="" asp-controller="Peminjamen" asp-action="Index"><i class="bi__icon fas fa-truck-loading"></i> Peminjaman</a></li>
+                                <li><a class="dropdown-item @Url.MakeActive("Pengembalians")" asp-area="" asp-controller="Pengembalians" asp-action="Index"><i class="bi__icon fas fa-reply"></i> Pengembalian</a></li>
                             </ul>
                         </li>
                         <li class="nav-item @Url.MakeActive("Privacy")">

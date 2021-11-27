@@ -47,7 +47,7 @@ namespace RentalKendaraan.Controllers
         // GET: Kendaraans/Create
         public IActionResult Create()
         {
-            ViewData["IdJenisKendaraan"] = new SelectList(_context.JenisKendaraans, "IdJenisKendaraan", "IdJenisKendaraan");
+            ViewData["IdJenisKendaraan"] = new SelectList(_context.JenisKendaraans, "IdJenisKendaraan", "NamaJenisKendaraan");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace RentalKendaraan.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdJenisKendaraan"] = new SelectList(_context.JenisKendaraans, "IdJenisKendaraan", "IdJenisKendaraan", kendaraan.IdJenisKendaraan);
+            ViewData["IdJenisKendaraan"] = new SelectList(_context.JenisKendaraans, "IdJenisKendaraan", "NamaJenisKendaraan", kendaraan.IdJenisKendaraan);
             return View(kendaraan);
         }
 
@@ -81,7 +81,7 @@ namespace RentalKendaraan.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdJenisKendaraan"] = new SelectList(_context.JenisKendaraans, "IdJenisKendaraan", "IdJenisKendaraan", kendaraan.IdJenisKendaraan);
+            ViewData["IdJenisKendaraan"] = new SelectList(_context.JenisKendaraans, "IdJenisKendaraan", "NamaJenisKendaraan", kendaraan.IdJenisKendaraan);
             return View(kendaraan);
         }
 
@@ -117,7 +117,7 @@ namespace RentalKendaraan.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdJenisKendaraan"] = new SelectList(_context.JenisKendaraans, "IdJenisKendaraan", "IdJenisKendaraan", kendaraan.IdJenisKendaraan);
+            ViewData["IdJenisKendaraan"] = new SelectList(_context.JenisKendaraans, "IdJenisKendaraan", "NamaJenisKendaraan", kendaraan.IdJenisKendaraan);
             return View(kendaraan);
         }
 

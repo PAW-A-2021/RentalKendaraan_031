@@ -1,35 +1,49 @@
 ﻿@model IEnumerable<RentalKendaraan.Models.Jaminan>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Guarantee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 jaminan__data">
+    <h3 class="h4 title"><i class="fas fa-hand-holding-usd"></i> &nbsp; Guanrantee Data</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NamaJaminan)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NamaJaminan)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdJaminan">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdJaminan">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdJaminan">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <a asp-action="Create" class="btn btn-sm btn-outline-dark text-decoration-none">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create new data</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="table__jaminan">
+    <table class="table table-striped table-hover table-responsive-lg" id="table_data">
+        <thead class="table__head">
+            <tr>
+                <th>
+                    @Html.DisplayName("Nama Jaminan")
+                </th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table_body">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NamaJaminan)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-area="@item.NamaJaminan" asp-action="Details" asp-route-id="@item.IdJaminan" class="btn btn-sm btn-success" title="Detail" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-info-circle"></i></a>
+                            <a asp-area="@item.NamaJaminan" asp-action="Edit" asp-route-id="@item.IdJaminan" class="btn btn-sm btn-info" title="Edit" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                            <a asp-area="@item.NamaJaminan" asp-action="Delete" asp-route-id="@item.IdJaminan" class="btn btn-sm btn-danger" title="Delete" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

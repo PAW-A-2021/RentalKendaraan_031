@@ -1,59 +1,73 @@
 ﻿@model IEnumerable<RentalKendaraan.Models.Peminjaman>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Vehicle Loan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 vhcloans__data">
+    <h3 class="h4 title"><i class="bi__icon fas fa-truck-loading"></i> &nbsp; Vehicle Loans Data</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TglPeminjaman)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Biaya)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCustomerNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdJaminanNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdKendaraanNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TglPeminjaman)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Biaya)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCustomerNavigation.IdCustomer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdJaminanNavigation.IdJaminan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdKendaraanNavigation.IdKendaraan)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdPeminjaman">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdPeminjaman">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdPeminjaman">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <a asp-action="Create" class="btn btn-sm btn-outline-dark text-decoration-none">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create new data</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="table__vhcloans">
+    <table class="table table-striped table-hover table-responsive-lg" id="table_data">
+        <thead class="table__head">
+            <tr>
+                <th>
+                    @Html.DisplayName("Tanggal Peminjaman")
+                </th>
+                <th>
+                    @Html.DisplayName("Biaya")
+                </th>
+                <th>
+                    @Html.DisplayName("Nama Customer")
+                </th>
+                <th>
+                    @Html.DisplayName("Jaminan")
+                </th>
+                <th>
+                    @Html.DisplayName("Nama Kendaraan")
+                </th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table_body">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TglPeminjaman)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Biaya)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCustomerNavigation.NamaCustomer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdJaminanNavigation.NamaJaminan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdKendaraanNavigation.NamaKendaraan)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-area="@item.TglPeminjaman" asp-action="Details" asp-route-id="@item.IdPeminjaman" class="btn btn-sm btn-success" title="Detail" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-info-circle"></i></a>
+                            <a asp-area="@item.TglPeminjaman" asp-action="Edit" asp-route-id="@item.IdPeminjaman" class="btn btn-sm btn-info" title="Edit" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                            <a asp-area="@item.TglPeminjaman" asp-action="Delete" asp-route-id="@item.IdPeminjaman" class="btn btn-sm btn-danger" title="Delete" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

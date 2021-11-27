@@ -48,7 +48,7 @@ namespace RentalKendaraan.Controllers
         // GET: Pengembalians/Create
         public IActionResult Create()
         {
-            ViewData["IdKondisi"] = new SelectList(_context.KondisiKendaraans, "IdKondisi", "IdKondisi");
+            ViewData["IdKondisi"] = new SelectList(_context.KondisiKendaraans, "IdKondisi", "NamaKondisi");
             ViewData["IdPeminjaman"] = new SelectList(_context.Peminjamen, "IdPeminjaman", "IdPeminjaman");
             return View();
         }
@@ -66,7 +66,7 @@ namespace RentalKendaraan.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdKondisi"] = new SelectList(_context.KondisiKendaraans, "IdKondisi", "IdKondisi", pengembalian.IdKondisi);
+            ViewData["IdKondisi"] = new SelectList(_context.KondisiKendaraans, "IdKondisi", "NamaKondisi", pengembalian.IdKondisi);
             ViewData["IdPeminjaman"] = new SelectList(_context.Peminjamen, "IdPeminjaman", "IdPeminjaman", pengembalian.IdPeminjaman);
             return View(pengembalian);
         }
@@ -84,7 +84,7 @@ namespace RentalKendaraan.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdKondisi"] = new SelectList(_context.KondisiKendaraans, "IdKondisi", "IdKondisi", pengembalian.IdKondisi);
+            ViewData["IdKondisi"] = new SelectList(_context.KondisiKendaraans, "IdKondisi", "NamaKondisi", pengembalian.IdKondisi);
             ViewData["IdPeminjaman"] = new SelectList(_context.Peminjamen, "IdPeminjaman", "IdPeminjaman", pengembalian.IdPeminjaman);
             return View(pengembalian);
         }
@@ -121,7 +121,7 @@ namespace RentalKendaraan.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdKondisi"] = new SelectList(_context.KondisiKendaraans, "IdKondisi", "IdKondisi", pengembalian.IdKondisi);
+            ViewData["IdKondisi"] = new SelectList(_context.KondisiKendaraans, "IdKondisi", "NamaKondisi", pengembalian.IdKondisi);
             ViewData["IdPeminjaman"] = new SelectList(_context.Peminjamen, "IdPeminjaman", "IdPeminjaman", pengembalian.IdPeminjaman);
             return View(pengembalian);
         }
