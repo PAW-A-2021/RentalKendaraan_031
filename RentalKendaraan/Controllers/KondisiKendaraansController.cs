@@ -19,9 +19,23 @@ namespace RentalKendaraan.Controllers
         }
 
         // GET: KondisiKendaraans
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string kondisikendaraan)
         {
-            return View(await _context.KondisiKendaraans.ToListAsync());
+            var kondisikendaraanList = new List<string>();
+            var kondisikendaraanQuery = from d in _context.KondisiKendaraans orderby d.NamaKondisi select d.NamaKondisi;
+
+            kondisikendaraanList.AddRange(kondisikendaraanQuery.Distinct());
+
+            ViewBag.kondisikendaraan = new SelectList(kondisikendaraanList);
+
+            var menu = from m in _context.KondisiKendaraans select m;
+
+            if (!string.IsNullOrEmpty(kondisikendaraan))
+            {
+                menu = menu.Where(x => x.NamaKondisi == kondisikendaraan);
+            }
+
+            return View(await menu.ToListAsync());
         }
 
         // GET: KondisiKendaraans/Details/5

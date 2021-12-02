@@ -19,9 +19,23 @@ namespace RentalKendaraan.Controllers
         }
 
         // GET: Genders
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string gender)
         {
-            return View(await _context.Genders.ToListAsync());
+            var genderList = new List<string>();
+            var genderQuery = from d in _context.Genders orderby d.NamaGender select d.NamaGender;
+
+            genderList.AddRange(genderQuery.Distinct());
+
+            ViewBag.gender = new SelectList(genderList);
+
+            var menu = from m in _context.Genders select m;
+
+            if (!string.IsNullOrEmpty(gender))
+            {
+                menu = menu.Where(x => x.NamaGender == gender);
+            }
+
+            return View(await menu.ToListAsync());
         }
 
         // GET: Genders/Details/5

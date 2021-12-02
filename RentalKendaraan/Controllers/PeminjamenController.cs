@@ -19,10 +19,23 @@ namespace RentalKendaraan.Controllers
         }
 
         // GET: Peminjamen
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string namakendaraan)
         {
-            var rentKendaraanContext = _context.Peminjamen.Include(p => p.IdCustomerNavigation).Include(p => p.IdJaminanNavigation).Include(p => p.IdKendaraanNavigation);
-            return View(await rentKendaraanContext.ToListAsync());
+            var namakendaraanList = new List<string>();
+            var namakendaraanQuery = from d in _context.Peminjamen orderby d.IdKendaraan select d.IdKendaraan.ToString();
+
+            namakendaraanList.AddRange(namakendaraanQuery.Distinct());
+
+            ViewBag.namakendaraan = new SelectList(_context.Kendaraans, "IdKendaraan", "NamaKendaraan");
+
+            var menu = from m in _context.Peminjamen.Include(p => p.IdCustomerNavigation).Include(p => p.IdJaminanNavigation).Include(p => p.IdKendaraanNavigation) select m;
+
+            if (!string.IsNullOrEmpty(namakendaraan))
+            {
+                menu = menu.Where(x => x.IdKendaraan.ToString() == namakendaraan);
+            }
+
+            return View(await menu.ToListAsync());
         }
 
         // GET: Peminjamen/Details/5
