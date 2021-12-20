@@ -1,0 +1,30 @@
+﻿@model RentalKendaraan.Models.Upload.FilesViewModel
+
+@{
+    ViewData["Title"] = "File";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="h4 title mt-5 pt-5"><i class="fas fa-file-alt"></i> &nbsp; Lists of Files</h3>
+
+<ul class="list-group mt-3 mb-3">
+    @foreach (var item in Model.Files)
+    {
+        <li class="list-group-item align-items-center">
+            <a class="list-group-item list-group-item-action list-group-item-light d-flex justify-content-between" asp-action="Download" asp-route-filename="@item.Name">
+                @item.Name
+                <span class="badge badge-primary badge-pill"><i class="fas fa-download"></i></span>
+            </a>
+        </li>
+    }
+</ul>
+
+<div class="btn-toolbar mt-4 mt-md-0 d-flex justify-content-end">
+    <div class="btn-group me-2">
+        <a asp-action="Index" class="btn btn-sm btn-outline-dark text-decoration-none">
+            <i class="fas fa-arrow-circle-left"></i>
+            <span>Back</span>
+        </a>
+    </div>
+</div>
+
